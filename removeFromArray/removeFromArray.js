@@ -1,5 +1,12 @@
-const removeFromArray = function() {
+const removeFromArray = function (array, ...args) {
+  let ToDelete = [...args];
 
-}
+  let ToDeleteSet = new Set(ToDelete);
 
-module.exports = removeFromArray
+  let newArray = array.filter((item) => {
+    return !ToDeleteSet.has(item);
+  });
+  return newArray;
+};
+
+module.exports = removeFromArray;
